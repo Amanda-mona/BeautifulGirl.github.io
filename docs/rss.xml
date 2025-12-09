@@ -1,5 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Beautiful Girl 的博客</title><link>https://Amanda-mona.github.io/BeautifulGirl.github.io</link><description>哈哈，我是漂亮女孩~很高兴认识你！是一位朋友告诉我可以这样建立个人博客的啦！我想在这里记录我的一些生活学习经历，一起加油吧！</description><copyright>Beautiful Girl 的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/220183292?u=32ecf601fe50928a577ef43a689e6eebd1036ecb&amp;v=4</url><title>avatar</title><link>https://Amanda-mona.github.io/BeautifulGirl.github.io</link></image><lastBuildDate>Tue, 09 Dec 2025 17:17:56 +0000</lastBuildDate><managingEditor>Beautiful Girl 的博客</managingEditor><ttl>60</ttl><webMaster>Beautiful Girl 的博客</webMaster><item><title>不完美的开始（python、R语言、Linux）</title><link>https://Amanda-mona.github.io/BeautifulGirl.github.io/post/bu-wan-mei-de-kai-shi-%EF%BC%88python%E3%80%81R-yu-yan-%E3%80%81Linux%EF%BC%89.html</link><description># Python
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Beautiful Girl 的博客</title><link>https://Amanda-mona.github.io/BeautifulGirl.github.io</link><description>哈哈，我是漂亮女孩~很高兴认识你！是一位朋友告诉我可以这样建立个人博客的啦！我想在这里记录我的一些生活学习经历，一起加油吧！</description><copyright>Beautiful Girl 的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/220183292?u=32ecf601fe50928a577ef43a689e6eebd1036ecb&amp;v=4</url><title>avatar</title><link>https://Amanda-mona.github.io/BeautifulGirl.github.io</link></image><lastBuildDate>Tue, 09 Dec 2025 17:55:47 +0000</lastBuildDate><managingEditor>Beautiful Girl 的博客</managingEditor><ttl>60</ttl><webMaster>Beautiful Girl 的博客</webMaster><item><title>生物信息学特训（实战练习）</title><link>https://Amanda-mona.github.io/BeautifulGirl.github.io/post/sheng-wu-xin-xi-xue-te-xun-%EF%BC%88-shi-zhan-lian-xi-%EF%BC%89.html</link><description>## 2025年12月10日 1：52（中国时间）
+中欧时间：2025年12月9日 18：52
+### 1. 实战练习：
+
+- 用列表存储10个基因名，编写函数筛选包含'P53'的基因
+- 创建染色体坐标字典，计算特定区域长度
+- 解析FASTA文件头（参考：'&gt;gene|TP53|chr17:7571719-7590868'）
+
+### 2. 效率工具：
+
+使用collections.Counter快速统计k-mer频率
+```python
+from collections import Counter
+kmer_counts = Counter('ATGCATGC'[i:i+3] for i in range(len('ATGCATGC')-2))
+```
+
+
+&gt; **明日学习建议**：  
+&gt; 掌握基础后，可进入【函数高级特性+模块化编程】：
+&gt; 1. 闭包与装饰器优化生信流水线  
+&gt; 2. `itertools`模块处理组合问题（如引物设计）  
+&gt; 3. 用`argparse`构建命令行工具  
+。</description><guid isPermaLink="true">https://Amanda-mona.github.io/BeautifulGirl.github.io/post/sheng-wu-xin-xi-xue-te-xun-%EF%BC%88-shi-zhan-lian-xi-%EF%BC%89.html</guid><pubDate>Tue, 09 Dec 2025 17:55:17 +0000</pubDate></item><item><title>不完美的开始（python、R语言、Linux）</title><link>https://Amanda-mona.github.io/BeautifulGirl.github.io/post/bu-wan-mei-de-kai-shi-%EF%BC%88python%E3%80%81R-yu-yan-%E3%80%81Linux%EF%BC%89.html</link><description># Python
 
 &gt; Python是一个非常流行的编程语言，主要用于Web开发、数据分析、机器学习等领域。</description><guid isPermaLink="true">https://Amanda-mona.github.io/BeautifulGirl.github.io/post/bu-wan-mei-de-kai-shi-%EF%BC%88python%E3%80%81R-yu-yan-%E3%80%81Linux%EF%BC%89.html</guid><pubDate>Tue, 09 Dec 2025 17:14:14 +0000</pubDate></item><item><title>有感（2025.12.5） 18：09 中欧时间</title><link>https://Amanda-mona.github.io/BeautifulGirl.github.io/post/you-gan-%EF%BC%882025.12.5%EF%BC%89%2018%EF%BC%9A09%20-zhong-ou-shi-jian.html</link><description>不知道为什么：
 很有感触，但是心里惶然。</description><guid isPermaLink="true">https://Amanda-mona.github.io/BeautifulGirl.github.io/post/you-gan-%EF%BC%882025.12.5%EF%BC%89%2018%EF%BC%9A09%20-zhong-ou-shi-jian.html</guid><pubDate>Fri, 05 Dec 2025 17:10:59 +0000</pubDate></item><item><title>漂亮女孩的测试</title><link>https://Amanda-mona.github.io/BeautifulGirl.github.io/post/piao-liang-nv-hai-de-ce-shi.html</link><description># 这里是漂亮女孩的天地~
