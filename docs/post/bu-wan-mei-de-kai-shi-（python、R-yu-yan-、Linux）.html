@@ -21,7 +21,7 @@
 <meta property="og:url" content="https://Amanda-mona.github.io/BeautifulGirl.github.io/post/bu-wan-mei-de-kai-shi-%EF%BC%88python%E3%80%81R-yu-yan-%E3%80%81Linux%EF%BC%89.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/220183292?u=32ecf601fe50928a577ef43a689e6eebd1036ecb&v=4">
 <title>不完美的开始（python、R语言、Linux）</title>
-
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 
 </head>
@@ -45,7 +45,17 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     body {padding: 8px;}
     .postTitle{font-size:24px;}
 }
-
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
 </style>
 
 
@@ -95,8 +105,131 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ul>
 <h2>1.  基础知识：</h2>
 <p>像<strong>变量、数据类型、循环、条件判断、函数、类</strong>等，这些都是Python的基本语法，必须得理解透彻，否则后续的代码开发会很吃力。</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" aria-label="Incomplete task"> 基础变量与语法</li>
+</ul>
+<h3>1. 变量与数据类型</h3>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 生物信息学常见数据类型应用</span>
+<span class="pl-s1">gene_name</span> <span class="pl-c1">=</span> <span class="pl-s">"TP53"</span>                  <span class="pl-c"># 字符串：基因名称</span>
+<span class="pl-s1">is_oncogene</span> <span class="pl-c1">=</span> <span class="pl-c1">True</span>                  <span class="pl-c"># 布尔值：致癌基因标记</span>
+<span class="pl-s1">chromosome_location</span> <span class="pl-c1">=</span> <span class="pl-c1">17</span>            <span class="pl-c"># 整数：染色体位置</span>
+<span class="pl-s1">protein_molecular_weight</span> <span class="pl-c1">=</span> <span class="pl-c1">43.7</span>     <span class="pl-c"># 浮点：蛋白质分子量</span></pre></div>
+<h3>2. 类型转换与检查</h3>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 测序质量值处理示例</span>
+<span class="pl-s1">quality_score</span> <span class="pl-c1">=</span> <span class="pl-s">"36.8"</span>              <span class="pl-c"># 字符串形式的浮点数</span>
+<span class="pl-s1">converted_score</span> <span class="pl-c1">=</span> <span class="pl-en">float</span>(<span class="pl-s1">quality_score</span>)  <span class="pl-c"># 转换为浮点 → 36.8</span>
+
+<span class="pl-c"># 类型检查在数据处理中的重要性</span>
+<span class="pl-k">if</span> <span class="pl-en">type</span>(<span class="pl-s1">converted_score</span>) <span class="pl-c1">is</span> <span class="pl-s1">float</span>:
+    <span class="pl-en">print</span>(<span class="pl-s">f"质量值有效: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">converted_score</span><span class="pl-kos">}</span></span>"</span>)</pre></div>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" aria-label="Incomplete task"> 流程控制</li>
+</ul>
+<h3>1. 条件判断 - if/elif/else</h3>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 基因表达量分类逻辑</span>
+<span class="pl-s1">expression_level</span> <span class="pl-c1">=</span> <span class="pl-c1">8.2</span>
+
+<span class="pl-k">if</span> <span class="pl-s1">expression_level</span> <span class="pl-c1">&gt;</span> <span class="pl-c1">10</span>:
+    <span class="pl-en">print</span>(<span class="pl-s">"高表达"</span>)
+<span class="pl-k">elif</span> <span class="pl-c1">5</span> <span class="pl-c1">&lt;=</span> <span class="pl-s1">expression_level</span> <span class="pl-c1">&lt;=</span> <span class="pl-c1">10</span>:
+    <span class="pl-en">print</span>(<span class="pl-s">"中表达"</span>)  <span class="pl-c"># 此条件将触发</span>
+<span class="pl-k">else</span>:
+    <span class="pl-en">print</span>(<span class="pl-s">"低表达"</span>)
+</pre></div>
+<h3>2. 循环结构</h3>
+<p>for循环处理序列数据</p>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 遍历DNA序列计算GC含量</span>
+<span class="pl-s1">dna_sequence</span> <span class="pl-c1">=</span> <span class="pl-s">"ATGCGATAGCTAGCT"</span>
+<span class="pl-s1">gc_count</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span>
+
+<span class="pl-k">for</span> <span class="pl-s1">base</span> <span class="pl-c1">in</span> <span class="pl-s1">dna_sequence</span>:
+    <span class="pl-k">if</span> <span class="pl-s1">base</span> <span class="pl-c1">in</span> [<span class="pl-s">'G'</span>, <span class="pl-s">'C'</span>]:
+        <span class="pl-s1">gc_count</span> <span class="pl-c1">+=</span> <span class="pl-c1">1</span>
+
+<span class="pl-s1">gc_content</span> <span class="pl-c1">=</span> <span class="pl-s1">gc_count</span> <span class="pl-c1">/</span> <span class="pl-en">len</span>(<span class="pl-s1">dna_sequence</span>) <span class="pl-c1">*</span> <span class="pl-c1">100</span>
+<span class="pl-en">print</span>(<span class="pl-s">f"GC含量: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">gc_content</span>:.2f<span class="pl-kos">}</span></span>%"</span>)  <span class="pl-c"># 输出: GC含量: 46.67%</span></pre></div>
+<p>while循环处理未知长度数据</p>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 模拟测序数据读取直到遇到终止符</span>
+<span class="pl-s1">raw_data</span> <span class="pl-c1">=</span> [<span class="pl-s">"@READ1"</span>, <span class="pl-s">"ATGCGTA"</span>, <span class="pl-s">"+"</span>, <span class="pl-s">"!!!!!!!"</span>, <span class="pl-s">"@READ2"</span>, <span class="pl-s">"CTAGCT"</span>, <span class="pl-s">"..."</span>, <span class="pl-s">"END"</span>]
+<span class="pl-s1">index</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span>
+
+<span class="pl-k">while</span> <span class="pl-s1">index</span> <span class="pl-c1">&lt;</span> <span class="pl-en">len</span>(<span class="pl-s1">raw_data</span>) <span class="pl-c1">and</span> <span class="pl-s1">raw_data</span>[<span class="pl-s1">index</span>] <span class="pl-c1">!=</span> <span class="pl-s">"END"</span>:
+    <span class="pl-k">if</span> <span class="pl-s1">raw_data</span>[<span class="pl-s1">index</span>].<span class="pl-c1">startswith</span>(<span class="pl-s">"@"</span>):
+        <span class="pl-en">print</span>(<span class="pl-s">f"处理读段: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">raw_data</span>[<span class="pl-s1">index</span>][<span class="pl-c1">1</span>:]<span class="pl-kos">}</span></span>"</span>)
+    <span class="pl-s1">index</span> <span class="pl-c1">+=</span> <span class="pl-c1">1</span></pre></div>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" aria-label="Incomplete task"> 函数基础</li>
+</ul>
+<h3>1. 定义与调用</h3>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 计算序列GC含量的函数</span>
+<span class="pl-k">def</span> <span class="pl-en">calculate_gc_content</span>(<span class="pl-s1">sequence</span>):
+    <span class="pl-s">"""计算DNA序列的GC含量"""</span>
+    <span class="pl-s1">gc_count</span> <span class="pl-c1">=</span> <span class="pl-s1">sequence</span>.<span class="pl-c1">count</span>(<span class="pl-s">'G'</span>) <span class="pl-c1">+</span> <span class="pl-s1">sequence</span>.<span class="pl-c1">count</span>(<span class="pl-s">'C'</span>)
+    <span class="pl-k">return</span> <span class="pl-s1">gc_count</span> <span class="pl-c1">/</span> <span class="pl-en">len</span>(<span class="pl-s1">sequence</span>) <span class="pl-c1">*</span> <span class="pl-c1">100</span> <span class="pl-k">if</span> <span class="pl-s1">sequence</span> <span class="pl-k">else</span> <span class="pl-c1">0</span>
+
+<span class="pl-c"># 调用示例</span>
+<span class="pl-s1">dna</span> <span class="pl-c1">=</span> <span class="pl-s">"ATGCTAGCTAGCTAG"</span>
+<span class="pl-en">print</span>(<span class="pl-en">calculate_gc_content</span>(<span class="pl-s1">dna</span>))  <span class="pl-c"># 输出: 46.67</span></pre></div>
+<h3>2. 参数进阶用法</h3>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 带默认参数的序列格式化函数</span>
+<span class="pl-k">def</span> <span class="pl-en">format_sequence</span>(<span class="pl-s1">seq</span>, <span class="pl-s1">line_length</span><span class="pl-c1">=</span><span class="pl-c1">60</span>):
+    <span class="pl-s">"""将长序列分割为多行显示"""</span>
+    <span class="pl-k">return</span> <span class="pl-s">'<span class="pl-cce">\n</span>'</span>.<span class="pl-c1">join</span>(<span class="pl-s1">seq</span>[<span class="pl-s1">i</span>:<span class="pl-s1">i</span><span class="pl-c1">+</span><span class="pl-s1">line_length</span>] <span class="pl-k">for</span> <span class="pl-s1">i</span> <span class="pl-c1">in</span> <span class="pl-en">range</span>(<span class="pl-c1">0</span>, <span class="pl-en">len</span>(<span class="pl-s1">seq</span>), <span class="pl-s1">line_length</span>))
+
+<span class="pl-c"># 使用默认值</span>
+<span class="pl-en">print</span>(<span class="pl-en">format_sequence</span>(<span class="pl-s">"ATGC"</span><span class="pl-c1">*</span><span class="pl-c1">50</span>))
+
+<span class="pl-c"># 自定义行长</span>
+<span class="pl-en">print</span>(<span class="pl-en">format_sequence</span>(<span class="pl-s">"ATGC"</span><span class="pl-c1">*</span><span class="pl-c1">50</span>, <span class="pl-s1">line_length</span><span class="pl-c1">=</span><span class="pl-c1">80</span>))</pre></div>
 <h2>2.  数据结构：</h2>
 <p><strong>列表、元组、栈、队列、字典、集合</strong>等，这些都是Python中常用的容器，掌握它们的用法和性能差异很重要。</p>
+<h3>1. 列表 (List) - 可变有序集合</h3>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 存储样本ID并操作</span>
+<span class="pl-s1">samples</span> <span class="pl-c1">=</span> [<span class="pl-s">"SRR123"</span>, <span class="pl-s">"SRR456"</span>, <span class="pl-s">"SRR789"</span>]
+
+<span class="pl-c"># 生物信息学常用操作</span>
+<span class="pl-s1">samples</span>.<span class="pl-c1">append</span>(<span class="pl-s">"SRR101"</span>)            <span class="pl-c"># 添加新样本 → ["SRR123", "SRR456", "SRR789", "SRR101"]</span>
+<span class="pl-k">del</span> <span class="pl-s1">samples</span>[<span class="pl-c1">1</span>]                      <span class="pl-c"># 删除问题样本 → ["SRR123", "SRR789", "SRR101"]</span>
+<span class="pl-s1">rna_samples</span> <span class="pl-c1">=</span> <span class="pl-s1">samples</span>[<span class="pl-c1">0</span>:<span class="pl-c1">2</span>]          <span class="pl-c"># 切片获取前两个样本 → ["SRR123", "SRR789"]</span>
+
+<span class="pl-c"># 列表推导式快速处理数据</span>
+<span class="pl-s1">gc_contents</span> <span class="pl-c1">=</span> [<span class="pl-c1">45.6</span>, <span class="pl-c1">38.2</span>, <span class="pl-c1">49.1</span>]
+<span class="pl-s1">high_gc</span> <span class="pl-c1">=</span> [<span class="pl-s1">gc</span> <span class="pl-k">for</span> <span class="pl-s1">gc</span> <span class="pl-c1">in</span> <span class="pl-s1">gc_contents</span> <span class="pl-k">if</span> <span class="pl-s1">gc</span> <span class="pl-c1">&gt;</span> <span class="pl-c1">40</span>]  <span class="pl-c"># → [45.6, 49.1]</span></pre></div>
+<h3>2. 元组 (Tuple) - 不可变有序集合</h3>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 存储基因坐标（不可变保证数据安全）</span>
+<span class="pl-s1">gene_location</span> <span class="pl-c1">=</span> (<span class="pl-s">"chr7"</span>, <span class="pl-c1">117175000</span>, <span class="pl-c1">117178000</span>, <span class="pl-s">"EGFR"</span>)
+
+<span class="pl-c"># 解包操作快速获取信息</span>
+<span class="pl-s1">chromosome</span>, <span class="pl-s1">start</span>, <span class="pl-s1">end</span>, <span class="pl-s1">symbol</span> <span class="pl-c1">=</span> <span class="pl-s1">gene_location</span>
+<span class="pl-en">print</span>(<span class="pl-s">f"<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">symbol</span><span class="pl-kos">}</span></span>基因位于<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">chromosome</span><span class="pl-kos">}</span></span>:<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">start</span><span class="pl-kos">}</span></span>-<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">end</span><span class="pl-kos">}</span></span>"</span>)</pre></div>
+<h3>3. 字典 (Dict) - 键值映射</h3>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 存储基因功能注释</span>
+<span class="pl-s1">gene_functions</span> <span class="pl-c1">=</span> {
+    <span class="pl-s">"TP53"</span>: <span class="pl-s">"肿瘤抑制蛋白"</span>,
+    <span class="pl-s">"BRCA1"</span>: <span class="pl-s">"DNA修复酶"</span>,
+    <span class="pl-s">"MYC"</span>: <span class="pl-s">"转录因子"</span>
+}
+
+<span class="pl-c"># 生物信息学典型应用</span>
+<span class="pl-c"># 添加新注释</span>
+<span class="pl-s1">gene_functions</span>[<span class="pl-s">"EGFR"</span>] <span class="pl-c1">=</span> <span class="pl-s">"表皮生长因子受体"</span>
+
+<span class="pl-c"># 安全获取值</span>
+<span class="pl-s1">function</span> <span class="pl-c1">=</span> <span class="pl-s1">gene_functions</span>.<span class="pl-c1">get</span>(<span class="pl-s">"APOE"</span>, <span class="pl-s">"功能未知"</span>)  <span class="pl-c"># 键不存在返回默认值</span>
+
+<span class="pl-c"># 遍历基因-功能对</span>
+<span class="pl-k">for</span> <span class="pl-s1">gene</span>, <span class="pl-s1">func</span> <span class="pl-c1">in</span> <span class="pl-s1">gene_functions</span>.<span class="pl-c1">items</span>():
+    <span class="pl-en">print</span>(<span class="pl-s">f"<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">gene</span><span class="pl-kos">}</span></span>: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">func</span><span class="pl-kos">}</span></span>"</span>)</pre></div>
+<h3>4. 集合 (Set) - 无序唯一元素</h3>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 筛选独特突变位点</span>
+<span class="pl-s1">all_mutations</span> <span class="pl-c1">=</span> [<span class="pl-s">"chr1:1234A&gt;T"</span>, <span class="pl-s">"chr2:5678G&gt;C"</span>, <span class="pl-s">"chr1:1234A&gt;T"</span>, <span class="pl-s">"chr3:9012T&gt;A"</span>]
+<span class="pl-s1">unique_mutations</span> <span class="pl-c1">=</span> <span class="pl-en">set</span>(<span class="pl-s1">all_mutations</span>)  <span class="pl-c"># 自动去重 → {"chr1:1234A&gt;T", "chr2:5678G&gt;C", "chr3:9012T&gt;A"}</span>
+
+<span class="pl-c"># 集合运算找共有突变</span>
+<span class="pl-s1">patient_A</span> <span class="pl-c1">=</span> {<span class="pl-s">"chr1:1234A&gt;T"</span>, <span class="pl-s">"chr2:5678G&gt;C"</span>}
+<span class="pl-s1">patient_B</span> <span class="pl-c1">=</span> {<span class="pl-s">"chr1:1234A&gt;T"</span>, <span class="pl-s">"chr3:9012T&gt;A"</span>}
+<span class="pl-s1">common_mutations</span> <span class="pl-c1">=</span> <span class="pl-s1">patient_A</span> <span class="pl-c1">&amp;</span> <span class="pl-s1">patient_B</span>  <span class="pl-c"># 交集 → {"chr1:1234A&gt;T"}</span></pre></div>
+<p><a href="url">实战练习</a></p>
 <h2>3.  模块和库：</h2>
 <p>比如标准库里的<strong>math、datetime、os、sys、re</strong>等等，还有一些常用第三方库，比如<strong>pandas、numpy、scikit-learn、requests</strong>等，这些是Python生态系统的重要组成部分。</p>
 <h2>4.  编程 paradigms（编程范式）：</h2>
@@ -209,7 +342,7 @@ if(""!=""){
 </script></div>
 </body>
 <script>
-var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
 var utterancesLoad=0;
 
 let themeSettings={
@@ -282,7 +415,70 @@ function iFrameLoading(){
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
 
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
 
 </script>
 

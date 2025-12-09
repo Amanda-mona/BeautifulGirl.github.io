@@ -13,9 +13,166 @@
 - [ ] 10.  性能优化与调试  
 
 ## 1.  基础知识：
-像**变量、数据类型、循环、条件判断、函数、类**等，这些都是Python的基本语法，必须得理解透彻，否则后续的代码开发会很吃力。  
+像**变量、数据类型、循环、条件判断、函数、类**等，这些都是Python的基本语法，必须得理解透彻，否则后续的代码开发会很吃力。
+
+- [ ] 基础变量与语法
+
+### 1. 变量与数据类型
+```python
+# 生物信息学常见数据类型应用
+gene_name = "TP53"                  # 字符串：基因名称
+is_oncogene = True                  # 布尔值：致癌基因标记
+chromosome_location = 17            # 整数：染色体位置
+protein_molecular_weight = 43.7     # 浮点：蛋白质分子量
+
+```
+ ### 2. 类型转换与检查
+```python
+# 测序质量值处理示例
+quality_score = "36.8"              # 字符串形式的浮点数
+converted_score = float(quality_score)  # 转换为浮点 → 36.8
+
+# 类型检查在数据处理中的重要性
+if type(converted_score) is float:
+    print(f"质量值有效: {converted_score}")
+
+```
+
+- [ ] 流程控制
+
+### 1. 条件判断 - if/elif/else
+```python
+# 基因表达量分类逻辑
+expression_level = 8.2
+
+if expression_level > 10:
+    print("高表达")
+elif 5 <= expression_level <= 10:
+    print("中表达")  # 此条件将触发
+else:
+    print("低表达")
+
+
+```
+ ### 2. 循环结构
+for循环处理序列数据
+```python
+# 遍历DNA序列计算GC含量
+dna_sequence = "ATGCGATAGCTAGCT"
+gc_count = 0
+
+for base in dna_sequence:
+    if base in ['G', 'C']:
+        gc_count += 1
+
+gc_content = gc_count / len(dna_sequence) * 100
+print(f"GC含量: {gc_content:.2f}%")  # 输出: GC含量: 46.67%
+
+```
+while循环处理未知长度数据
+```python
+# 模拟测序数据读取直到遇到终止符
+raw_data = ["@READ1", "ATGCGTA", "+", "!!!!!!!", "@READ2", "CTAGCT", "...", "END"]
+index = 0
+
+while index < len(raw_data) and raw_data[index] != "END":
+    if raw_data[index].startswith("@"):
+        print(f"处理读段: {raw_data[index][1:]}")
+    index += 1
+
+```
+
+- [ ] 函数基础
+
+### 1. 定义与调用
+```python
+# 计算序列GC含量的函数
+def calculate_gc_content(sequence):
+    """计算DNA序列的GC含量"""
+    gc_count = sequence.count('G') + sequence.count('C')
+    return gc_count / len(sequence) * 100 if sequence else 0
+
+# 调用示例
+dna = "ATGCTAGCTAGCTAG"
+print(calculate_gc_content(dna))  # 输出: 46.67
+```
+ ### 2. 参数进阶用法
+```python
+# 带默认参数的序列格式化函数
+def format_sequence(seq, line_length=60):
+    """将长序列分割为多行显示"""
+    return '\n'.join(seq[i:i+line_length] for i in range(0, len(seq), line_length))
+
+# 使用默认值
+print(format_sequence("ATGC"*50))
+
+# 自定义行长
+print(format_sequence("ATGC"*50, line_length=80))
+```
+
 ## 2.  数据结构：
 **列表、元组、栈、队列、字典、集合**等，这些都是Python中常用的容器，掌握它们的用法和性能差异很重要。 
+
+### 1. 列表 (List) - 可变有序集合
+```python
+# 存储样本ID并操作
+samples = ["SRR123", "SRR456", "SRR789"]
+
+# 生物信息学常用操作
+samples.append("SRR101")            # 添加新样本 → ["SRR123", "SRR456", "SRR789", "SRR101"]
+del samples[1]                      # 删除问题样本 → ["SRR123", "SRR789", "SRR101"]
+rna_samples = samples[0:2]          # 切片获取前两个样本 → ["SRR123", "SRR789"]
+
+# 列表推导式快速处理数据
+gc_contents = [45.6, 38.2, 49.1]
+high_gc = [gc for gc in gc_contents if gc > 40]  # → [45.6, 49.1]
+
+```
+
+### 2. 元组 (Tuple) - 不可变有序集合
+```python
+# 存储基因坐标（不可变保证数据安全）
+gene_location = ("chr7", 117175000, 117178000, "EGFR")
+
+# 解包操作快速获取信息
+chromosome, start, end, symbol = gene_location
+print(f"{symbol}基因位于{chromosome}:{start}-{end}")
+```
+### 3. 字典 (Dict) - 键值映射
+```python
+# 存储基因功能注释
+gene_functions = {
+    "TP53": "肿瘤抑制蛋白",
+    "BRCA1": "DNA修复酶",
+    "MYC": "转录因子"
+}
+
+# 生物信息学典型应用
+# 添加新注释
+gene_functions["EGFR"] = "表皮生长因子受体"
+
+# 安全获取值
+function = gene_functions.get("APOE", "功能未知")  # 键不存在返回默认值
+
+# 遍历基因-功能对
+for gene, func in gene_functions.items():
+    print(f"{gene}: {func}")
+```
+
+### 4. 集合 (Set) - 无序唯一元素
+```python
+# 筛选独特突变位点
+all_mutations = ["chr1:1234A>T", "chr2:5678G>C", "chr1:1234A>T", "chr3:9012T>A"]
+unique_mutations = set(all_mutations)  # 自动去重 → {"chr1:1234A>T", "chr2:5678G>C", "chr3:9012T>A"}
+
+# 集合运算找共有突变
+patient_A = {"chr1:1234A>T", "chr2:5678G>C"}
+patient_B = {"chr1:1234A>T", "chr3:9012T>A"}
+common_mutations = patient_A & patient_B  # 交集 → {"chr1:1234A>T"}
+
+```
+[实战练习](url)
+
 ## 3.  模块和库：
 比如标准库里的**math、datetime、os、sys、re**等等，还有一些常用第三方库，比如**pandas、numpy、scikit-learn、requests**等，这些是Python生态系统的重要组成部分。  
 ## 4.  编程 paradigms（编程范式）：
