@@ -1,8 +1,8 @@
 # Python
 
 > Python是一个非常流行的编程语言，主要用于Web开发、数据分析、机器学习等领域。如果要掌握Python，他可能需要掌握以下几个方面的知识：
-- [ ] 1.  基础知识
-- [ ] 2.  数据结构
+- [X] 1.  基础知识
+- [X] 2.  数据结构
 - [ ] 3.  模块和库
 - [ ] 4.  编程 paradigms（编程范式）
 - [ ] 5.  Web开发
@@ -171,7 +171,7 @@ patient_B = {"chr1:1234A>T", "chr3:9012T>A"}
 common_mutations = patient_A & patient_B  # 交集 → {"chr1:1234A>T"}
 
 ```
-[实战练习](https://github.com/Amanda-mona/BeautifulGirl.github.io/issues/4#issue-3712036518)
+[实战练习](https://amanda-mona.github.io/BeautifulGirl.github.io/post/sheng-wu-xin-xi-xue-te-xun-（-shi-zhan-lian-xi-）.html)
 
 ## 3.  模块和库：
 比如标准库里的**math、datetime、os、sys、re**等等，还有一些常用第三方库，比如**pandas、numpy、scikit-learn、requests**等，这些是Python生态系统的重要组成部分。  
