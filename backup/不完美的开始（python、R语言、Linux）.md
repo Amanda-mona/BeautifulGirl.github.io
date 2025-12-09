@@ -15,9 +15,9 @@
 ## 1.  基础知识：
 像**变量、数据类型、循环、条件判断、函数、类**等，这些都是Python的基本语法，必须得理解透彻，否则后续的代码开发会很吃力。
 
-- [ ] 基础变量与语法
+### 1.基础变量与语法
 
-### 1. 变量与数据类型
+#### ① 变量与数据类型
 ```python
 # 生物信息学常见数据类型应用
 gene_name = "TP53"                  # 字符串：基因名称
@@ -26,7 +26,7 @@ chromosome_location = 17            # 整数：染色体位置
 protein_molecular_weight = 43.7     # 浮点：蛋白质分子量
 
 ```
- ### 2. 类型转换与检查
+#### ② 类型转换与检查
 ```python
 # 测序质量值处理示例
 quality_score = "36.8"              # 字符串形式的浮点数
@@ -38,9 +38,9 @@ if type(converted_score) is float:
 
 ```
 
-- [ ] 流程控制
+### 2.流程控制
 
-### 1. 条件判断 - if/elif/else
+#### ① 条件判断 - if/elif/else
 ```python
 # 基因表达量分类逻辑
 expression_level = 8.2
@@ -54,7 +54,7 @@ else:
 
 
 ```
- ### 2. 循环结构
+#### ②循环结构
 for循环处理序列数据
 ```python
 # 遍历DNA序列计算GC含量
@@ -82,9 +82,9 @@ while index < len(raw_data) and raw_data[index] != "END":
 
 ```
 
-- [ ] 函数基础
+### 3.函数基础
 
-### 1. 定义与调用
+#### ①定义与调用
 ```python
 # 计算序列GC含量的函数
 def calculate_gc_content(sequence):
@@ -96,7 +96,7 @@ def calculate_gc_content(sequence):
 dna = "ATGCTAGCTAGCTAG"
 print(calculate_gc_content(dna))  # 输出: 46.67
 ```
- ### 2. 参数进阶用法
+ #### ②参数进阶用法
 ```python
 # 带默认参数的序列格式化函数
 def format_sequence(seq, line_length=60):
@@ -171,7 +171,7 @@ patient_B = {"chr1:1234A>T", "chr3:9012T>A"}
 common_mutations = patient_A & patient_B  # 交集 → {"chr1:1234A>T"}
 
 ```
-[实战练习](url)
+[实战练习](https://github.com/Amanda-mona/BeautifulGirl.github.io/issues/4#issue-3712036518)
 
 ## 3.  模块和库：
 比如标准库里的**math、datetime、os、sys、re**等等，还有一些常用第三方库，比如**pandas、numpy、scikit-learn、requests**等，这些是Python生态系统的重要组成部分。  

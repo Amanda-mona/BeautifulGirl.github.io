@@ -105,16 +105,14 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ul>
 <h2>1.  基础知识：</h2>
 <p>像<strong>变量、数据类型、循环、条件判断、函数、类</strong>等，这些都是Python的基本语法，必须得理解透彻，否则后续的代码开发会很吃力。</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" aria-label="Incomplete task"> 基础变量与语法</li>
-</ul>
-<h3>1. 变量与数据类型</h3>
+<h3>1.基础变量与语法</h3>
+<h4>① 变量与数据类型</h4>
 <div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 生物信息学常见数据类型应用</span>
 <span class="pl-s1">gene_name</span> <span class="pl-c1">=</span> <span class="pl-s">"TP53"</span>                  <span class="pl-c"># 字符串：基因名称</span>
 <span class="pl-s1">is_oncogene</span> <span class="pl-c1">=</span> <span class="pl-c1">True</span>                  <span class="pl-c"># 布尔值：致癌基因标记</span>
 <span class="pl-s1">chromosome_location</span> <span class="pl-c1">=</span> <span class="pl-c1">17</span>            <span class="pl-c"># 整数：染色体位置</span>
 <span class="pl-s1">protein_molecular_weight</span> <span class="pl-c1">=</span> <span class="pl-c1">43.7</span>     <span class="pl-c"># 浮点：蛋白质分子量</span></pre></div>
-<h3>2. 类型转换与检查</h3>
+<h4>② 类型转换与检查</h4>
 <div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 测序质量值处理示例</span>
 <span class="pl-s1">quality_score</span> <span class="pl-c1">=</span> <span class="pl-s">"36.8"</span>              <span class="pl-c"># 字符串形式的浮点数</span>
 <span class="pl-s1">converted_score</span> <span class="pl-c1">=</span> <span class="pl-en">float</span>(<span class="pl-s1">quality_score</span>)  <span class="pl-c"># 转换为浮点 → 36.8</span>
@@ -122,10 +120,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-c"># 类型检查在数据处理中的重要性</span>
 <span class="pl-k">if</span> <span class="pl-en">type</span>(<span class="pl-s1">converted_score</span>) <span class="pl-c1">is</span> <span class="pl-s1">float</span>:
     <span class="pl-en">print</span>(<span class="pl-s">f"质量值有效: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">converted_score</span><span class="pl-kos">}</span></span>"</span>)</pre></div>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" aria-label="Incomplete task"> 流程控制</li>
-</ul>
-<h3>1. 条件判断 - if/elif/else</h3>
+<h3>2.流程控制</h3>
+<h4>① 条件判断 - if/elif/else</h4>
 <div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 基因表达量分类逻辑</span>
 <span class="pl-s1">expression_level</span> <span class="pl-c1">=</span> <span class="pl-c1">8.2</span>
 
@@ -136,7 +132,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-k">else</span>:
     <span class="pl-en">print</span>(<span class="pl-s">"低表达"</span>)
 </pre></div>
-<h3>2. 循环结构</h3>
+<h4>②循环结构</h4>
 <p>for循环处理序列数据</p>
 <div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 遍历DNA序列计算GC含量</span>
 <span class="pl-s1">dna_sequence</span> <span class="pl-c1">=</span> <span class="pl-s">"ATGCGATAGCTAGCT"</span>
@@ -157,10 +153,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <span class="pl-k">if</span> <span class="pl-s1">raw_data</span>[<span class="pl-s1">index</span>].<span class="pl-c1">startswith</span>(<span class="pl-s">"@"</span>):
         <span class="pl-en">print</span>(<span class="pl-s">f"处理读段: <span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">raw_data</span>[<span class="pl-s1">index</span>][<span class="pl-c1">1</span>:]<span class="pl-kos">}</span></span>"</span>)
     <span class="pl-s1">index</span> <span class="pl-c1">+=</span> <span class="pl-c1">1</span></pre></div>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" aria-label="Incomplete task"> 函数基础</li>
-</ul>
-<h3>1. 定义与调用</h3>
+<h3>3.函数基础</h3>
+<h4>①定义与调用</h4>
 <div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 计算序列GC含量的函数</span>
 <span class="pl-k">def</span> <span class="pl-en">calculate_gc_content</span>(<span class="pl-s1">sequence</span>):
     <span class="pl-s">"""计算DNA序列的GC含量"""</span>
@@ -170,7 +164,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-c"># 调用示例</span>
 <span class="pl-s1">dna</span> <span class="pl-c1">=</span> <span class="pl-s">"ATGCTAGCTAGCTAG"</span>
 <span class="pl-en">print</span>(<span class="pl-en">calculate_gc_content</span>(<span class="pl-s1">dna</span>))  <span class="pl-c"># 输出: 46.67</span></pre></div>
-<h3>2. 参数进阶用法</h3>
+<h4>②参数进阶用法</h4>
 <div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 带默认参数的序列格式化函数</span>
 <span class="pl-k">def</span> <span class="pl-en">format_sequence</span>(<span class="pl-s1">seq</span>, <span class="pl-s1">line_length</span><span class="pl-c1">=</span><span class="pl-c1">60</span>):
     <span class="pl-s">"""将长序列分割为多行显示"""</span>
@@ -229,7 +223,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <span class="pl-s1">patient_A</span> <span class="pl-c1">=</span> {<span class="pl-s">"chr1:1234A&gt;T"</span>, <span class="pl-s">"chr2:5678G&gt;C"</span>}
 <span class="pl-s1">patient_B</span> <span class="pl-c1">=</span> {<span class="pl-s">"chr1:1234A&gt;T"</span>, <span class="pl-s">"chr3:9012T&gt;A"</span>}
 <span class="pl-s1">common_mutations</span> <span class="pl-c1">=</span> <span class="pl-s1">patient_A</span> <span class="pl-c1">&amp;</span> <span class="pl-s1">patient_B</span>  <span class="pl-c"># 交集 → {"chr1:1234A&gt;T"}</span></pre></div>
-<p><a href="url">实战练习</a></p>
+<p><a href="https://github.com/Amanda-mona/BeautifulGirl.github.io/issues/4#issue-3712036518" data-hovercard-type="issue" data-hovercard-url="/Amanda-mona/BeautifulGirl.github.io/issues/4/hovercard">实战练习</a></p>
 <h2>3.  模块和库：</h2>
 <p>比如标准库里的<strong>math、datetime、os、sys、re</strong>等等，还有一些常用第三方库，比如<strong>pandas、numpy、scikit-learn、requests</strong>等，这些是Python生态系统的重要组成部分。</p>
 <h2>4.  编程 paradigms（编程范式）：</h2>
