@@ -10,15 +10,19 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="### 1. 🧬 核心生物学知识与数据解读
-这是所有分析的基础，你必须深刻理解你所分析的数据背后的生物学意义。">
-<meta property="og:title" content="未来半年的努力方向（生物信息学）">
-<meta property="og:description" content="### 1. 🧬 核心生物学知识与数据解读
-这是所有分析的基础，你必须深刻理解你所分析的数据背后的生物学意义。">
+<meta name="description" content="2025年12月9日
+运行nextflow一直运行不出来，
+遇到了和以前相似的状况......
+有感......。">
+<meta property="og:title" content="人生有感（码一下~日后慢慢填）">
+<meta property="og:description" content="2025年12月9日
+运行nextflow一直运行不出来，
+遇到了和以前相似的状况......
+有感......。">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://Amanda-mona.github.io/BeautifulGirl.github.io/post/wei-lai-ban-nian-de-nu-li-fang-xiang-%EF%BC%88-sheng-wu-xin-xi-xue-%EF%BC%89.html">
+<meta property="og:url" content="https://Amanda-mona.github.io/BeautifulGirl.github.io/post/ren-sheng-you-gan-%EF%BC%88-ma-yi-xia-~-ri-hou-man-man-tian-%EF%BC%89.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/220183292?u=32ecf601fe50928a577ef43a689e6eebd1036ecb&v=4">
-<title>未来半年的努力方向（生物信息学）</title>
+<title>人生有感（码一下~日后慢慢填）</title>
 
 
 
@@ -51,7 +55,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 
 <body>
     <div id="header">
-<h1 class="postTitle">未来半年的努力方向（生物信息学）</h1>
+<h1 class="postTitle">人生有感（码一下~日后慢慢填）</h1>
 <div class="title-right">
     <a href="https://Amanda-mona.github.io/BeautifulGirl.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
         <svg class="octicon" width="16" height="16">
@@ -59,7 +63,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         </svg>
     </a>
     
-    <a href="https://github.com/Amanda-mona/BeautifulGirl.github.io/issues/7" target="_blank" class="btn btn-invisible circle" title="Issue">
+    <a href="https://github.com/Amanda-mona/BeautifulGirl.github.io/issues/5" target="_blank" class="btn btn-invisible circle" title="Issue">
         <svg class="octicon" width="16" height="16">
             <path id="pathIssue" fill-rule="evenodd"></path>
         </svg>
@@ -75,96 +79,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h3>1. 🧬 核心生物学知识与数据解读</h3>
-<p>这是所有分析的基础，你必须深刻理解你所分析的数据背后的生物学意义。</p>
-<ul>
-<li><strong>免疫学与肿瘤生物学</strong>：
-<ul>
-<li><strong>必须掌握</strong>：T细胞生物学（激活、耗竭、记忆分化）、肿瘤免疫循环、免疫抑制性肿瘤微环境。</li>
-<li><strong>关键概念</strong>：靶点（如CD19, BCMA, Claudin18.2）的表达谱、肿瘤异质性、T细胞耗竭标志物、细胞因子信号。</li>
-</ul>
-</li>
-<li><strong>CAR结构与功能</strong>：
-<ul>
-<li>理解不同共刺激域（如CD28, 4-1BB）对T细胞表型和持久性的影响。</li>
-<li>了解scFv序列的生物信息学分析（亲和力、免疫原性预测）。</li>
-</ul>
-</li>
-<li><strong>分子生物学与基因组学</strong>：
-<ul>
-<li>熟练掌握NGS技术原理：<strong>RNA-seq</strong>， <strong>scRNA-seq</strong>， <strong>WES/WGS</strong>， <strong>ATAC-seq</strong>， <strong>TCR/BCR测序</strong>。</li>
-</ul>
-</li>
-</ul>
-<h3>2. 💻 生物信息学核心技能栈</h3>
-<p>这是你进行分析的工具箱。</p>
-<markdown-accessiblity-table><table role="table">
-<thead>
-<tr>
-<th align="left">技能领域</th>
-<th align="left">具体技能与工具</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><strong>编程与统计</strong></td>
-<td align="left"><strong>R</strong> 和 <strong>Python</strong> 是绝对核心。R用于统计分析和可视化（ggplot2），Python用于更复杂的数据处理和机器学习。<strong>Linux/Unix命令行</strong> 操作是必须的。扎实的统计学基础（假设检验、回归、多重检验校正）。</td>
-</tr>
-<tr>
-<td align="left"><strong>数据管理</strong></td>
-<td align="left">处理海量测序数据的能力：<strong>FastQC</strong>（质控）， <strong>Trim Galore</strong>（去接头）， <strong>STAR</strong>/<strong>Kallisto</strong>（比对/定量）， <strong>GATK</strong>（变异检测）。</td>
-</tr>
-<tr>
-<td align="left"><strong>单细胞多组学分析</strong></td>
-<td align="left"><strong>这是CAR-T研究的重中之重</strong>。掌握主流分析工具：<strong>Seurat</strong>（R）， <strong>Scanpy</strong>（Python）， <strong>Cell Ranger</strong>（10X Genomics）。分析流程包括：细胞聚类与注释、差异表达分析、轨迹推断（如Monocle, PAGA）、TCR克隆性分析、细胞通讯分析（如CellChat）。</td>
-</tr>
-<tr>
-<td align="left"><strong>表观遗传分析</strong></td>
-<td align="left">掌握 <strong>ChIP-seq</strong> 和 <strong>ATAC-seq</strong> 数据分析流程（如MACS2峰值呼叫），用于研究T细胞分化过程中的表观遗传调控。</td>
-</tr>
-<tr>
-<td align="left"><strong>机器学习/AI</strong></td>
-<td align="left">应用机器学习模型解决生物学问题：<br>• <strong>监督学习</strong>：根据基因表达谱预测治疗响应或毒性（如随机森林、支持向量机）。<br>• <strong>无监督学习</strong>：发现新的细胞亚群或患者分型（如聚类算法）。<br>• <strong>深度学习</strong>：用于新抗原预测、MHC-肽段结合预测、甚至从头设计CAR/scFv（如AlphaFold2的应用）。</td>
-</tr>
-</tbody>
-</table></markdown-accessiblity-table>
-<h3>3. 🎯 在CAR-T研发流程中的具体应用场景</h3>
-<p>将你的技能应用到具体的研发问题上。</p>
-<ul>
-<li><strong>靶点发现与验证</strong>：
-<ul>
-<li><strong>分析公共数据库</strong>（如TCGA, GTEx, CCLE）寻找在肿瘤中高表达、在正常组织中低表达的潜在靶点。</li>
-<li>利用<strong>蛋白质结构预测工具</strong>分析靶点与候选scFv的结合。</li>
-</ul>
-</li>
-<li><strong>CAR-T细胞设计优化</strong>：
-<ul>
-<li><strong>分析scRNA-seq数据</strong>：比较不同CAR结构（如不同共刺激域）转导的T细胞，其转录组特征的差异（耗竭、记忆、代谢通路）。</li>
-<li><strong>整合多组学数据</strong>：将ATAC-seq（染色质开放性）与RNA-seq数据结合，揭示驱动T细胞持久性的关键转录因子和调控网络。</li>
-</ul>
-</li>
-<li><strong>疗效与耐药性机制研究</strong>：
-<ul>
-<li><strong>寻找生物标志物</strong>：通过对患者治疗前的肿瘤样本进行RNA-seq分析，找到与治疗响应/耐药相关的基因签名。</li>
-<li><strong>解析耐药机制</strong>：分析治疗后复发患者的样本，通过WES寻找靶点逃逸突变（如CD19阴性复发），或通过scRNA-seq分析肿瘤微环境如何导致CAR-T细胞功能失调。</li>
-</ul>
-</li>
-<li><strong>安全性评估（毒性预测）</strong>：
-<ul>
-<li>开发模型预测<strong>细胞因子释放综合征</strong> 和<strong>神经毒性</strong>。例如，通过分析患者外周血中的细胞因子动力学或单细胞数据，找到早期的预警信号。</li>
-</ul>
-</li>
-<li><strong>“现货型”CAR-T的开发</strong>：
-<ul>
-<li>利用<strong>基因编辑</strong>（CRISPR）数据和<strong>HLA分型</strong>数据，设计通用型CAR-T，避免GvHD和宿主排斥。</li>
-</ul>
-</li>
-</ul>
-<h3>4. 🛠️ 数据资源与可视化</h3>
-<ul>
-<li><strong>公共数据资源</strong>：熟练查询和使用 <strong>NCBI GEO</strong>/<strong>SRA</strong>、<strong>TCGA</strong>、<strong>GTEx</strong>、<strong>IGR</strong>、<strong>cBioPortal</strong> 等数据库。</li>
-<li><strong>可视化</strong>：不仅能做标准图表，还能创建复杂的交互式图表（如 <strong>heatmap</strong>， <strong>violin plot</strong>， <strong>UMAP/t-SNE</strong>， <strong>轨迹图</strong>）来清晰地展示你的发现。工具如 <strong>ggplot2</strong>, <strong>Plotly</strong>, <strong>ComplexHeatmap</strong>。</li>
-</ul></div>
+<div class="markdown-body" id="postBody"><p>2025年12月9日<br>
+运行nextflow一直运行不出来，<br>
+遇到了和以前相似的状况......<br>
+有感......</p></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
@@ -223,11 +141,7 @@ console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
-cmButton=document.getElementById("cmButton");
-    span=document.createElement("span");
-    span.setAttribute("class","Counter");
-    span.innerHTML="1";
-    cmButton.appendChild(span);
+
 
 
 function openComments(){
